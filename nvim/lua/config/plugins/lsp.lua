@@ -10,8 +10,7 @@ return {
 					pylsp = {
 						plugins = {
 							pycodestyle = {
-								ignore = { "E501", "E226", "E303" },  -- line too long, missing whitespace for ops 
-								-- maxLineLength = 100, -- optional override
+								ignore = { "E501", "E226", "E303", "E231" },  -- line too long, missing whitespace for ops 
 							},
 						},
 					},
