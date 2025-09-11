@@ -1,11 +1,11 @@
 ## Curent neovim configuration.
 
 feat. DOOM:
-![DOOM1](/Users/joseph/dotfiles/images/DOOM1.png)
-![DOOM2](/Users/joseph/dotfiles/images/DOOM2.png)
+![DOOM1](https://drive.google.com/file/d/1TA2Lo-65rm44xjvZgCV2xS5bg2WPakci/view?usp=drive_link)
+![DOOM2](https://drive.google.com/file/d/1joyUY60Mu2q_S2kzzXKZBICNcvMznzB-/view?usp=drive_link)
 
 feat. Levi:
-![levi](/Users/joseph/dotfiles/images/levi.png)
+![levi](https://drive.google.com/file/d/10DUIm-zJRxuGzxztoXdu5Zi0Femp2kMa/view?usp=drive_link)
 
 
 
