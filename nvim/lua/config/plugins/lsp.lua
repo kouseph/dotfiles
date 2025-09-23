@@ -18,6 +18,7 @@ return {
 			},
 			clangd = {},
 			marksman = {},
+			texlab = {},
 		},
 	},
 

@@ -18,12 +18,8 @@ setopt hist_find_no_dups
 eval "$(fzf --zsh)"
 eval "$(gdircolors -b)"
 autoload -U compinit
+zstyle ':completion:*' menu select
 zstyle ':completion:*:git-checkout:*' sort false
-zstyle ':fzf-tab:*' fzf-command fzf
-zstyle ':fzf-tab:*' fzf-flags --preview-window=right:50%
-zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}
-zstyle ':fzf-tab:complete:cd:*' fzf-preview 'ls --color=always $realpath'
-zstyle ':completion:*' menu no
 zmodload zsh/complist
 compinit
 _comp_options+=(globdots)		# Include hidden files.
@@ -68,18 +64,16 @@ bindkey -M menuselect 'j' vi-down-line-or-history
 bindkey -v '^?' backward-delete-char
 
 
+# bindkey -s '^o' 'lfcd\n'
 
-lfcd () {
-    tmp="$(mktemp)"
-    lf -last-dir-path="$tmp" "$@"
-    if [ -f "$tmp" ]; then
-        dir="$(cat "$tmp")"
-        rm -f "$tmp"
-        [ -d "$dir" ] && [ "$dir" != "$(pwd)" ] && cd "$dir"
-    fi
-}
-bindkey -s '^o' 'lfcd\n'
-
+# change editor and visualizor for n3
+export NNN_PLUG="f:fzcd;a:bulknew;y:cbcopy-mac"
+export NNN_TRASH="trash"
+export NNN_FIFO="/tmp/nnn.fifo"
+export NNN_USE_EDITOR=1
+export VISUAL=nvim
+export EDITOR=nvim
+export NNN_BMS="h:/Users/joseph;c:/Users/joseph/Coding;D:/Users/joseph/Documents;d:/Users/joseph/Downloads;b:/Users/joseph/Library/CloudStorage/Box-Box;s:/Users/joseph/Documents/UCLA"
 
 
 
@@ -100,12 +94,12 @@ unset __conda_setup
 
 
 # =============== ALIASES ===============
-alias python='python3'
 alias vim='nvim'
 alias tm='tmux'
 alias G++='g++ -Wall -Weffc++ -Wextra -Wconversion -Wsign-conversion -Werror'
 alias CLANG++='clang++ -Wall -Weffc++ -Wextra -Wconversion -Wsign-conversion -Werror'
 alias ls='gls --color=auto'
+alias n3='nnn -e -G'
 
 export PATH="/usr/local/opt/openssl/bin:$PATH"
 bindkey '^H' backward-kill-word
@@ -115,7 +109,7 @@ bindkey '^[[1;5C' forward-word
 
 
 
-source $(brew --prefix)/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh >> ${ZDOTDIR:-$HOME}/.zshrc
 source $(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh
-source ~/somewhere/fzf-tab.plugin.zsh
+source $(brew --prefix)/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+# source ~/somewhere/fzf-tab.plugin.zsh
 export PATH=/opt/local/bin:/opt/local/sbin:$PATH

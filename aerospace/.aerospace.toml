@@ -197,6 +197,10 @@ alt-shift-l = ['join-with right', 'mode main']
 if.app-id='app.zen-browser.zen'
 run="move-node-to-workspace 1"
 
+[[on-window-detected]]
+if.app-id='com.brave.Browser'
+run="move-node-to-workspace 1"
+
 
 
 [[on-window-detected]]
@@ -204,7 +208,7 @@ if.app-id='com.microsoft.VSCode'
 run="move-node-to-workspace 2"
 
 [[on-window-detected]]
-if.app-id='com.gitub.wez.wezterm'
+if.app-id='com.github.wez.wezterm'
 run="move-node-to-workspace 2"
 
 [[on-window-detected]]
@@ -223,6 +227,10 @@ run="move-node-to-workspace 3"
 
 [[on-window-detected]]
 if.app-id='com.facebook.archon.developerID'
+run="move-node-to-workspace 3"
+
+[[on-window-detected]]
+if.app-id='com.spikehd.dorion'
 run="move-node-to-workspace 3"
 
 

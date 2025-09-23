@@ -16,6 +16,8 @@ return {
 
 		vim.keymap.set('n', "<leader>pg", builtin.git_files, { desc = "search git files" })
 
+		vim.keymap.set('n', '<leader>pb', builtin.buffers, { desc = 'Telescope buffers' })
+
 		vim.keymap.set('n', '<leader>g', function()
 			require('telescope.builtin').live_grep({
 				hidden = true,

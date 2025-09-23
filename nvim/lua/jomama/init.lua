@@ -4,7 +4,7 @@ require("config.lazy")
 -- ========== COLOR SCHEME ============
 vim.o.background = "dark"
 vim.cmd([[colorscheme gruvbox]])
--- vim.api.nvim_set_hl(0, "Normal", { bg = "none" })
+vim.api.nvim_set_hl(0, "Normal", { bg = "none" })
 -- vim.api.nvim_set_hl(0, "NormalFloat", { bg = "none" })
 
 -- =========== LINE NUMBERS ==============
@@ -28,6 +28,9 @@ vim.keymap.set("n", "<leader>w", function()
 	vim.opt.wrap = enable
 	vim.opt.linebreak = enable
 	vim.opt.breakindent = enable
+	vim.schedule(function()
+		vim.cmd("normal! zz")
+	end)
 end, { desc = "Toggle pretty line wrap" })
 
 -- ================== LSP ===================
@@ -67,7 +70,6 @@ vim.filetype.add({
     md = "markdown",
   },
 })
-
 
 
 -- ================ OTHER SETTINGS ==============
