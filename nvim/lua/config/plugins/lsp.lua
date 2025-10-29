@@ -10,7 +10,7 @@ return {
 					pylsp = {
 						plugins = {
 							pycodestyle = {
-								ignore = { "E501", "E226", "E303", "E231" },  -- line too long, missing whitespace for ops 
+								ignore = { "E501", "E226", "E303", "E231" },
 							},
 						},
 					},
@@ -19,11 +19,15 @@ return {
 			clangd = {},
 			marksman = {},
 			texlab = {},
+			tailwindcss = {},
+			ts_ls = {},
+			jsonls = {},
+			eslint = {}
 		},
 	},
 
 	config = function(_, opts)
-		local lspconfig = require("lspconfig")
+		-- local lspconfig = require("lspconfig")
 
 		local on_attach = function(_, bufnr)
 			local o = { noremap = true, silent = true, buffer = bufnr }
@@ -35,10 +39,15 @@ return {
 			vim.keymap.set("n", "[e", vim.diagnostic.goto_prev, { desc = "Previous diagnostic" })
 		end
 
-		for server, config in pairs(opts.servers) do
-			config.capabilities = require("blink.cmp").get_lsp_capabilities(config.capabilities)
-			config.on_attach = on_attach
-			lspconfig[server].setup(config)
+		vim.lsp.config('*', {
+			capabilities = require("blink.cmp").get_lsp_capabilities(),
+			on_attach = on_attach,
+		})
+
+		-- per-server overrides + enable
+		for name, cfg in pairs(opts.servers) do
+			vim.lsp.config(name, cfg)   -- register/merge this server’s config
+			vim.lsp.enable(name)        -- activate it
 		end
 	end,
 }

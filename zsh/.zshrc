@@ -67,7 +67,7 @@ bindkey -v '^?' backward-delete-char
 # bindkey -s '^o' 'lfcd\n'
 
 # change editor and visualizor for n3
-export NNN_PLUG="f:fzcd;a:bulknew;y:cbcopy-mac"
+export NNN_PLUG="f:fzcd;c:bulknew;y:cbcopy-mac" #access plugins with ;<key>
 export NNN_TRASH="trash"
 export NNN_FIFO="/tmp/nnn.fifo"
 export NNN_USE_EDITOR=1
@@ -96,20 +96,30 @@ unset __conda_setup
 # =============== ALIASES ===============
 alias vim='nvim'
 alias tm='tmux'
+alias ta='tmux a'
+alias tn='tmux new -ds'
+alias tm='tmux new -s'
 alias G++='g++ -Wall -Weffc++ -Wextra -Wconversion -Wsign-conversion -Werror'
 alias CLANG++='clang++ -Wall -Weffc++ -Wextra -Wconversion -Wsign-conversion -Werror'
 alias ls='gls --color=auto'
 alias n3='nnn -e -G'
+alias emacs='doom emacs'
+alias em='doom emacs' 
+alias za='zathura'
+alias pv='python3 -m venv'
 
 export PATH="/usr/local/opt/openssl/bin:$PATH"
 bindkey '^H' backward-kill-word
 bindkey '^[[1;5D' backward-word
 bindkey '^[[1;5C' forward-word
 
+export PATH="$HOME/.config/emacs/bin:$PATH"
 
 
+export PATH="/opt/homebrew/bin:$PATH"
 
 source $(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 source $(brew --prefix)/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 # source ~/somewhere/fzf-tab.plugin.zsh
 export PATH=/opt/local/bin:/opt/local/sbin:$PATH
+export PATH="$HOME/.local/bin:$PATH"
