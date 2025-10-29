@@ -1,6 +1,7 @@
 require("jomama.remap")
 require("config.lazy")
 
+
 -- ========== COLOR SCHEME ============
 vim.o.background = "dark"
 vim.cmd([[colorscheme gruvbox]])
@@ -40,6 +41,14 @@ vim.diagnostic.config({
   underline = true,      -- underline offending code
   update_in_insert = true,
 })
+vim.api.nvim_create_autocmd("FileType", {
+  pattern = { "javascript", "javascriptreact", "typescript", "typescriptreact" },
+  callback = function()
+    vim.bo.tabstop = 2        -- how many spaces a TAB displays as
+    vim.bo.shiftwidth = 2     -- how many spaces for indentation operations
+    vim.bo.expandtab = true   -- convert TAB key -> spaces
+  end,
+})
 vim.api.nvim_create_autocmd("LspAttach", {
   callback = function(event)
     local o = { buffer = event.buf, noremap = true, silent = true }
@@ -73,6 +82,13 @@ vim.filetype.add({
 
 
 -- ================ OTHER SETTINGS ==============
+-- Fold settings
+vim.o.foldmethod = "expr"
+vim.o.foldexpr = "v:lua.vim.treesitter.foldexpr()"
+vim.o.foldenable = false -- keeps code open by default
+vim.o.foldlevel = 99     -- avoids everything collapsing immediately
+
+
 -- don't continue commenting when entering after commented line
 vim.opt.formatoptions:remove({ "c", "r", "o" })
 vim.api.nvim_create_autocmd("BufEnter", {
@@ -95,4 +111,4 @@ vim.api.nvim_create_autocmd("TextYankPost", {
 
 -- copy and paste with mac's copy history
 vim.opt.clipboard = "unnamedplus"
-vim.opt.fillchars:append({ eob = " " })
+-- vim.opt.fillchars:append({ eob = " " })

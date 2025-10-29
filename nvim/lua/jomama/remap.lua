@@ -9,6 +9,6 @@ vim.api.nvim_set_keymap('n', '<C-j>', 'gj', { noremap = true, silent = true})
 vim.api.nvim_set_keymap('n', '<C-k>', 'gk', { noremap = true, silent = true})
 vim.api.nvim_set_keymap('n', '<C-l>', 'zl', { noremap = true, silent = true})
 
-vim.keymap.set('v', '<leader>p', "\"_dP")
+vim.keymap.set('v', '<leader>p', "\"_dP") -- pastes and doesn't copy what has been deleted
 
 vim.keymap.set('n', '<leader>c', '1z=')
