@@ -53,7 +53,7 @@ vim.api.nvim_create_autocmd("FileType", {
   end,
 })
 vim.api.nvim_create_autocmd("FileType", {
-  pattern = { "cpp", "hpp", "cc", "cxx" },
+  pattern = { "cpp", "hpp", "cc", "cxx", "latex", "text" },
   callback = function()
     vim.bo.tabstop = 4        -- how many spaces a TAB displays as
     vim.bo.shiftwidth = 4     -- how many spaces for indentation operations
@@ -102,6 +102,9 @@ vim.api.nvim_create_user_command("BlinkToggle", function()
 end, {})
 
 -- ================ OTHER SETTINGS ==============
+-- column transparent
+vim.o.signcolumn = "yes"
+vim.cmd [[highlight ctermbg=NONE guibg=NONE ]]
 
 
 -- Fold settings
