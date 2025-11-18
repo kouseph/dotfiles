@@ -95,6 +95,7 @@ vim.filetype.add({
 
 -- ================= blink.cmp toggle ==============
 -- toggle blink.cmp on/off
+
 vim.api.nvim_create_user_command("BlinkToggle", function()
   vim.g.blink_disabled_global = not vim.g.blink_disabled_global
   print(vim.g.blink_disabled_global and "blink.cmp OFF globally" or "blink.cmp ON globally")
