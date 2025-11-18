@@ -8,7 +8,7 @@ return {
 		vim.keymap.set('n', '<leader>pf', function()
 			require('telescope.builtin').find_files({
 				hidden = true,
-				no_ignore = true,         -- DO NOT respect .gitignore
+				no_ignore = true,
 				no_ignore_parent = true,
 				file_ignore_patterns = { "%.git/", "node_modules/", ".venv/", "venv/" },
 			})

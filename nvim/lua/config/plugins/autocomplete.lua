@@ -10,8 +10,26 @@ return{
 
 		opts = {
 			enabled = function()
-				return not vim.tbl_contains({"tex", "latex", "plaintex"}, vim.bo.filetype) and vim.bo.buftype ~= "prompt"
+				return not vim.tbl_contains({"text", "plaintex", ""}, vim.bo.filetype) and vim.bo.buftype ~= "prompt"
 			end,
+
+			-- enabled = function()
+			-- 	-- 1. global toggle
+				local globally_enabled = (vim.g.blink_disabled_global ~= true)
+			--
+			-- 	-- 2. filetypes where blink should ALWAYS be off
+			-- 	local excluded_filetypes = { "text", "tex", "latex", "plaintex", "" }
+			-- 	local filetype_ok = not vim.tbl_contains(excluded_filetypes, vim.bo.filetype)
+			--
+			-- 	-- 3. buftype rules
+			-- 	local buftype_ok = vim.bo.buftype ~= "prompt"
+			--
+			-- 	-- final decision:
+			-- 	return globally_enabled and filetype_ok and buftype_ok
+			-- end,
+
+
+
 			-- 'default' (recommended) for mappings similar to built-in completions (C-y to accept)
 			-- 'super-tab' for mappings similar to vscode (tab to accept)
 			-- 'enter' for enter to accept

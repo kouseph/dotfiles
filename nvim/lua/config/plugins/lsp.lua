@@ -5,16 +5,14 @@ return {
 	dependencies = { "Saghen/blink.cmp" },
 	opts = {
 		servers = {
-			pylsp = {
+			basedpyright = {
 				settings = {
-					pylsp = {
-						plugins = {
-							pycodestyle = {
-								ignore = { "E501", "E226", "E303", "E231" },
-							},
+					basedpyright = {
+						analysis = {
+							typeCheckingMode = "basic",
 						},
 					},
-				},
+				}
 			},
 			clangd = {},
 			marksman = {},
@@ -22,7 +20,8 @@ return {
 			tailwindcss = {},
 			ts_ls = {},
 			jsonls = {},
-			eslint = {}
+			eslint = {},
+			bashls = {}
 		},
 	},
 

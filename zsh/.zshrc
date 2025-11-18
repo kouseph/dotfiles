@@ -1,7 +1,7 @@
 # Enable colors and change prompt:
 autoload -U colors && colors
 # PS1="%B%{$fg[red]%}[%{$fg[yellow]%}%n%{$fg[green]%}@%{$fg[blue]%}%M %{$fg[magenta]%}%~%{$fg[red]%}]%{$reset_color%}$%b "
-PS1="%B%F{132}%~%f%b $ "
+PS1="%B%F{132}%~%f%b %% "
 
 # History in cache directory:
 HISTSIZE=10000
@@ -73,7 +73,7 @@ export NNN_FIFO="/tmp/nnn.fifo"
 export NNN_USE_EDITOR=1
 export VISUAL=nvim
 export EDITOR=nvim
-export NNN_BMS="h:/Users/joseph;c:/Users/joseph/Coding;D:/Users/joseph/Documents;d:/Users/joseph/Downloads;b:/Users/joseph/Library/CloudStorage/Box-Box;s:/Users/joseph/Documents/UCLA"
+export NNN_BMS="h:/Users/joseph;c:/Users/joseph/Coding;D:/Users/joseph/Documents;d:/Users/joseph/Downloads;b:/Users/joseph/Library/CloudStorage/Box-Box;s:/Users/joseph/Documents/UCLA/25-fall/"
 
 
 
@@ -123,3 +123,8 @@ source $(brew --prefix)/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zs
 # source ~/somewhere/fzf-tab.plugin.zsh
 export PATH=/opt/local/bin:/opt/local/sbin:$PATH
 export PATH="$HOME/.local/bin:$PATH"
+# The following lines have been added by Docker Desktop to enable Docker CLI completions.
+fpath=(/Users/joseph/.docker/completions $fpath)
+autoload -Uz compinit
+compinit
+# End of Docker CLI completions

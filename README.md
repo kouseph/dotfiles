@@ -10,7 +10,6 @@ feat. Levi:
 ![levi](images/levi.png)
 
 
-
 Top 3 pluggins:
 1) mbbill/undotree
 2) nvim-telescope/telescope.nvim

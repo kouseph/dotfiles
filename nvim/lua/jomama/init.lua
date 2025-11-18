@@ -2,11 +2,13 @@ require("jomama.remap")
 require("config.lazy")
 
 
+
 -- ========== COLOR SCHEME ============
 vim.o.background = "dark"
 vim.cmd([[colorscheme gruvbox]])
 vim.api.nvim_set_hl(0, "Normal", { bg = "none" })
 -- vim.api.nvim_set_hl(0, "NormalFloat", { bg = "none" })
+-- vim.o.winborder = "rounded" --so that float color can be transparent and it can be more legible
 
 -- =========== LINE NUMBERS ==============
 vim.opt.number = true
@@ -19,19 +21,19 @@ vim.opt.breakindent = true -- keep indentation when wrapping
 vim.opt.showbreak = "   ↳ "
 vim.opt.list = true
 vim.opt.listchars = {
-	extends = "…",
-	precedes = "…",
-	tab = "  ",   -- two spaces: hides the '>' tab marker
-	trail = " ",  -- optional: hide trailing-space marker too
+  extends = "…",
+  precedes = "…",
+  tab = "  ",   -- two spaces: hides the '>' tab marker
+  trail = " ",  -- optional: hide trailing-space marker too
 }
 vim.keymap.set("n", "<leader>w", function()
-	local enable = not vim.opt.wrap:get()
-	vim.opt.wrap = enable
-	vim.opt.linebreak = enable
-	vim.opt.breakindent = enable
-	vim.schedule(function()
-		vim.cmd("normal! zz")
-	end)
+  local enable = not vim.opt.wrap:get()
+  vim.opt.wrap = enable
+  vim.opt.linebreak = enable
+  vim.opt.breakindent = enable
+  vim.schedule(function()
+    vim.cmd("normal! zz")
+  end)
 end, { desc = "Toggle pretty line wrap" })
 
 -- ================== LSP ===================
@@ -41,14 +43,24 @@ vim.diagnostic.config({
   underline = true,      -- underline offending code
   update_in_insert = true,
 })
+vim.bo.tabstop = 4
 vim.api.nvim_create_autocmd("FileType", {
-  pattern = { "javascript", "javascriptreact", "typescript", "typescriptreact" },
+  pattern = { "javascript", "javascriptreact", "typescript", "typescriptreact", "lua" },
   callback = function()
     vim.bo.tabstop = 2        -- how many spaces a TAB displays as
     vim.bo.shiftwidth = 2     -- how many spaces for indentation operations
     vim.bo.expandtab = true   -- convert TAB key -> spaces
   end,
 })
+vim.api.nvim_create_autocmd("FileType", {
+  pattern = { "cpp", "hpp", "cc", "cxx" },
+  callback = function()
+    vim.bo.tabstop = 4        -- how many spaces a TAB displays as
+    vim.bo.shiftwidth = 4     -- how many spaces for indentation operations
+    vim.bo.expandtab = true   -- convert TAB key -> spaces
+  end,
+})
+
 vim.api.nvim_create_autocmd("LspAttach", {
   callback = function(event)
     local o = { buffer = event.buf, noremap = true, silent = true }
@@ -81,7 +93,16 @@ vim.filetype.add({
 })
 
 
+-- ================= blink.cmp toggle ==============
+-- toggle blink.cmp on/off
+vim.api.nvim_create_user_command("BlinkToggle", function()
+  vim.g.blink_disabled_global = not vim.g.blink_disabled_global
+  print(vim.g.blink_disabled_global and "blink.cmp OFF globally" or "blink.cmp ON globally")
+end, {})
+
 -- ================ OTHER SETTINGS ==============
+
+
 -- Fold settings
 vim.o.foldmethod = "expr"
 vim.o.foldexpr = "v:lua.vim.treesitter.foldexpr()"
@@ -102,11 +123,11 @@ vim.opt.scrolloff = 5
 
 -- highlight yanked text
 vim.api.nvim_create_autocmd("TextYankPost", {
-	desc = "Highlight when yanking text",
-	group = vim.api.nvim_create_augroup("kickstart-highlight-yank", { clear = true }),
-	callback = function()
-		vim.highlight.on_yank()
-	end,
+  desc = "Highlight when yanking text",
+  group = vim.api.nvim_create_augroup("kickstart-highlight-yank", { clear = true }),
+  callback = function()
+    vim.highlight.on_yank()
+  end,
 })
 
 -- copy and paste with mac's copy history
