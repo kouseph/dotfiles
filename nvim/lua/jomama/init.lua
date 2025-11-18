@@ -104,7 +104,7 @@ end, {})
 -- ================ OTHER SETTINGS ==============
 -- column transparent
 vim.o.signcolumn = "yes"
-vim.cmd [[highlight ctermbg=NONE guibg=NONE ]]
+vim.cmd [[highlight SignColumn ctermbg=NONE guibg=NONE ]]
 
 
 -- Fold settings
