@@ -17,4 +17,4 @@ vim.keymap.set('n', '<leader>q', ':wqa<CR>')
 vim.keymap.set('n', '<leader>s', ':set spell<CR>')
 vim.keymap.set('n', '<leader>ns', ':set nospell<CR>')
 
-vim.keymap.set('n', '<leader>ac', ':BlinkToggle<CR>')
+vim.keymap.set('n', '<leader>b', ':BlinkToggle<CR>')

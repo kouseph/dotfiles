@@ -18,7 +18,7 @@ return {
 			require("oil").setup({
 				delete_to_trash = true,
 				win_options = {
-					signcolumn = "yes:2",
+					signcolumn = "yes",
 				},
 				keymaps = {
 					["h"] = { "actions.parent", mode = "n" },
