@@ -10,6 +10,18 @@ vim.api.nvim_set_hl(0, "Normal", { bg = "none" })
 -- vim.api.nvim_set_hl(0, "NormalFloat", { bg = "none" })
 -- vim.o.winborder = "rounded" --so that float color can be transparent and it can be more legible
 
+-- column transparent
+vim.o.signcolumn = "yes"
+vim.cmd [[highlight SignColumn ctermbg=NONE guibg=NONE ]]
+
+-- Restore LSP sign colors (foreground) + remove background
+vim.cmd [[
+  highlight DiagnosticSignError guifg=#fb4934 guibg=NONE
+  highlight DiagnosticSignWarn  guifg=#fabd2f guibg=NONE
+  highlight DiagnosticSignInfo  guifg=#fabd2f guibg=NONE
+  highlight DiagnosticSignHint  guifg=#83a598 guibg=NONE
+]]
+
 -- =========== LINE NUMBERS ==============
 vim.opt.number = true
 vim.opt.relativenumber = true
@@ -102,11 +114,6 @@ vim.api.nvim_create_user_command("BlinkToggle", function()
 end, {})
 
 -- ================ OTHER SETTINGS ==============
--- column transparent
-vim.o.signcolumn = "yes"
-vim.cmd [[highlight SignColumn ctermbg=NONE guibg=NONE ]]
-
-
 -- Fold settings
 vim.o.foldmethod = "expr"
 vim.o.foldexpr = "v:lua.vim.treesitter.foldexpr()"
