@@ -216,6 +216,9 @@ run='move-node-to-workspace 3'
 [[on-window-detected]]
 if.app-id='com.yelab.Word-Master'
 run='move-node-to-workspace 3'
+[[on-window-detected]]
+if.app-id='com.spotify.client'
+run='move-node-to-workspace 3'
 
 
 

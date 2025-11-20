@@ -97,6 +97,7 @@ unset __conda_setup
 alias vim='nvim'
 alias tm='tmux'
 alias ta='tmux a'
+alias tl='tmux_session_opener.sh'
 alias tn='tmux new -ds'
 alias tm='tmux new -s'
 alias G++='g++ -Wall -Weffc++ -Wextra -Wconversion -Wsign-conversion -Werror'
