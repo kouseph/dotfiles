@@ -26,7 +26,9 @@ return {
 						"--no-ignore",      -- ignore .gitignore
 						"--hidden",         -- include dotfiles
 						"--glob", "!.git/*",
-						"--glob", "!node_modules/*",
+						"--glob", "!**/node_modules/**",
+						"--glob", "!package.json",
+						"--glob", "!package-lock.json",
 						"--glob", "!.venv/*",
 						"--glob", "!venv/*",
 					}

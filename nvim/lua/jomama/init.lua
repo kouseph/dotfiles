@@ -56,6 +56,9 @@ vim.diagnostic.config({
   update_in_insert = true,
 })
 vim.bo.tabstop = 4
+vim.bo.shiftwidth = 4
+vim.bo.expandtab = true
+
 vim.api.nvim_create_autocmd("FileType", {
   pattern = { "javascript", "javascriptreact", "typescript", "typescriptreact", "lua" },
   callback = function()
@@ -114,6 +117,9 @@ vim.api.nvim_create_user_command("BlinkToggle", function()
 end, {})
 
 -- ================ OTHER SETTINGS ==============
+-- vim block cursor
+vim.opt.guicursor = ""
+
 -- Fold settings
 vim.o.foldmethod = "expr"
 vim.o.foldexpr = "v:lua.vim.treesitter.foldexpr()"

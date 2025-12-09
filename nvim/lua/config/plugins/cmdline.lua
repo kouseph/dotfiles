@@ -1,5 +1,6 @@
 return{
 	'nvim-lualine/lualine.nvim',
+  enabled=false,
 	dependencies = {
 		'DaikyXendo/nvim-material-icon',
  },
