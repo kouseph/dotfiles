@@ -1,6 +1,5 @@
 # Enable colors and change prompt:
 autoload -U colors && colors
-# PS1="%B%{$fg[red]%}[%{$fg[yellow]%}%n%{$fg[green]%}@%{$fg[blue]%}%M %{$fg[magenta]%}%~%{$fg[red]%}]%{$reset_color%}$%b "
 PS1="%B%F{132}%~%f%b %% "
 
 # History in cache directory:
@@ -35,25 +34,6 @@ export KEYTIMEOUT=1
 # Edit line in vim with ctrl-e:
 autoload edit-command-line; zle -N edit-command-line
 bindkey '^e' edit-command-line
-
-#NOTE: This function kinda breaks normal vim, but there is a low chance imma use regular vim anyways LOL
-# function zle-keymap-select {
-#   if [[ ${KEYMAP} == vicmd ]] || [[ $1 = 'block' ]]; then
-#     echo -ne '\e[2 q'   # blinking block
-#   elif [[ ${KEYMAP} == main ]] || [[ ${KEYMAP} == viins ]] || [[ ${KEYMAP} = '' ]] || [[ $1 = 'beam' ]]; then
-#     echo -ne '\e[6 q'   # blinking underline (instead of pulsing beam)
-#   fi
-# }
-# zle -N zle-keymap-select
-# zle-line-init() {
-#   zle -K viins
-#   echo -ne "\e[6 q"   # start with blinking underline
-# }
-# zle -N zle-line-init
-# # Ensure cursor shape resets for new prompts
-# preexec() { echo -ne '\e[6 q' ;}
-# # Ensure cursor shape resets for new prompts
-# preexec() { echo -ne '\e[6 q' ;}
 
 
 # Use vim keys in tab complete menu:
