@@ -18,7 +18,7 @@ return{
         local globally_enabled = (vim.g.blink_disabled_global ~= true)
 
 				-- 2. filetypes where blink should ALWAYS be off
-				local excluded_filetypes = { "text", "plaintex", "" }
+				local excluded_filetypes = { "text", "plaintex", "", "markdown","typst" }
 				local filetype_ok = not vim.tbl_contains(excluded_filetypes, vim.bo.filetype)
 
 				-- 3. buftype rules

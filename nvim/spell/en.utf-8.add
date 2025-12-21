@@ -30,3 +30,6 @@ DevOps
 MySQL
 Postgres
 MongoDB
+parallelizable
+pragmas
+dataflow

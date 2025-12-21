@@ -21,7 +21,14 @@ return {
 			ts_ls = {},
 			jsonls = {},
 			eslint = {},
-			bashls = {}
+			bashls = {},
+      tinymist = {
+        settings = {
+          formatterMode = "typstyle",
+          exportPdf = "onType",
+          semanticTokens = "disable"
+        }
+      }
 		},
 	},
 

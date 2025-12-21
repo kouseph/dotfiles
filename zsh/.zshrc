@@ -116,6 +116,8 @@ bindkey '^[[1;5C' forward-word
 
 export PATH="$HOME/.config/emacs/bin:$PATH"
 
+export PATH="/opt/homebrew/opt/grep/libexec/gnubin:$PATH"
+alias grep='grep -P --color'
 
 export PATH="/opt/homebrew/bin:$PATH"
 
@@ -129,3 +131,4 @@ fpath=(/Users/joseph/.docker/completions $fpath)
 autoload -Uz compinit
 compinit
 # End of Docker CLI completions
+export PATH="$HOME/.cargo/bin:$PATH" #this enables all things installed by cargo to be in my path (first installation was the typst lsp)
