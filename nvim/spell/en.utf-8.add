@@ -33,3 +33,7 @@ MongoDB
 parallelizable
 pragmas
 dataflow
+HFT
+synthesizeable
+swe
+quant

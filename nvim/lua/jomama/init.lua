@@ -16,10 +16,10 @@ vim.cmd [[highlight SignColumn ctermbg=NONE guibg=NONE ]]
 
 -- Restore LSP sign colors (foreground) + remove background
 vim.cmd [[
-  highlight DiagnosticSignError guifg=#fb4934 guibg=NONE
-  highlight DiagnosticSignWarn  guifg=#fabd2f guibg=NONE
-  highlight DiagnosticSignInfo  guifg=#fabd2f guibg=NONE
-  highlight DiagnosticSignHint  guifg=#83a598 guibg=NONE
+  hi DiagnosticSignError guifg=#fb4934 guibg=NONE
+  hi DiagnosticSignWarn  guifg=#fabd2f guibg=NONE
+  hi DiagnosticSignInfo  guifg=#fabd2f guibg=NONE
+  hi DiagnosticSignHint  guifg=#83a598 guibg=NONE
 ]]
 
 -- =========== LINE NUMBERS ==============

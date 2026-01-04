@@ -84,10 +84,12 @@ alias G++='g++ -Wall -Weffc++ -Wextra -Wconversion -Wsign-conversion -Werror'
 alias CLANG++='clang++ -Wall -Weffc++ -Wextra -Wconversion -Wsign-conversion -Werror'
 alias ls='gls --color=auto'
 alias n3='nnn -e -G'
-alias emacs='doom emacs'
+# alias emacs='doom emacs'
 alias em='doom emacs' 
 alias za='zathura'
-alias pv='python3 -m venv'
+alias pyenv='python3 -m venv'
+alias im='wezterm imgcat'
+alias ytdl='yt-dlp'
 
 export PATH="/usr/local/opt/openssl/bin:$PATH"
 bindkey '^H' backward-kill-word
@@ -103,7 +105,6 @@ export PATH="/opt/homebrew/bin:$PATH"
 
 source $(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 source $(brew --prefix)/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-# source ~/somewhere/fzf-tab.plugin.zsh
 export PATH=/opt/local/bin:/opt/local/sbin:$PATH
 export PATH="$HOME/.local/bin:$PATH"
 # The following lines have been added by Docker Desktop to enable Docker CLI completions.

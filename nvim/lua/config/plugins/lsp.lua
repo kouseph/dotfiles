@@ -34,6 +34,9 @@ return {
 
 	config = function(_, opts)
 		-- local lspconfig = require("lspconfig")
+    require('render-markdown').setup({
+      completions = { lsp = { enabled = true } },
+    })
 
 		local on_attach = function(_, bufnr)
 			local o = { noremap = true, silent = true, buffer = bufnr }
